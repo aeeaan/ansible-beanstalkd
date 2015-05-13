@@ -1,2 +1,20 @@
 ---
-# tasks file for beanstalkd
+- name: install beanstalkd
+  yum: name=beanstalkd state=present
+  tags:
+    - beanstalkd
+    - packages
+
+- name: configure beanstalkd
+  template: src=sysconfig.j2 dest=/etc/sysconfig/beanstalkd owner=root group=root mode=0644
+  notify: restart beanstalkd
+  tags:
+    - beanstalkd
+    - configuration
+
+- name: ensure beanstalkd is enabled and running
+  service: name=beanstalkd enabled=yes state=started
+  tags:
+    - beanstalkd
+    - configuration
+    - services
