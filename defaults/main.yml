@@ -1,2 +1,2 @@
 ---
-# defaults file for beanstalkd
+common_install_correcthorse: true
