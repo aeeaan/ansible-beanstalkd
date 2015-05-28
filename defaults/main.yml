@@ -3,4 +3,5 @@ common_install_correcthorse: true
 
 beanstalkd_address: 0.0.0.0
 beanstalkd_port: 11300
+beanstalkd_open_port: false
 beanstalkd_user: beanstalkd

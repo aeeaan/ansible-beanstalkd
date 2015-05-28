@@ -18,3 +18,12 @@
     - beanstalkd
     - configuration
     - services
+
+- name: configure firewalld for beanstalkd
+  firewalld: zone=public port="{{ beanstalkd_port }}/tcp" permanent=true state=enabled
+  notify: reload firewall
+  when: beanstalkd_open_port and ansible_distribution_major_version|int > 6
+  tags:
+    - beanstalkd
+    - firewall
+    - configuration
