@@ -1,4 +1,4 @@
-Role Name
+correcthorse.beanstalkd
 =========
 
 An ansible role for installing beanstalkd.
